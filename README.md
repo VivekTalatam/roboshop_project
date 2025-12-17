@@ -1,1 +1,1 @@
-# roboshop_project
+Frontend server setup. 
