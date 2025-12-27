@@ -9,7 +9,7 @@ unzip /tmp/cart.zip
 cd /app 
 npm install 
 cp cart.service /etc/systemd/system/cart.service
-sed -i -e 's/<REDIS-SERVER-IP>/<write Redis IP after VM creation>' -e 's/<CATALOGUE-SERVER-IP>/<write Catalogue IP after VM Creation>' /etc/systemd/system/cart.service
+sed -i -e 's/<REDIS-SERVER-IP>/redis-dev.botparts.shop' -e 's/<CATALOGUE-SERVER-IP>/catalogue-dev.botparts.shop' /etc/systemd/system/cart.service
 systemctl daemon-reload
 systemctl enable cart
 systemctl start cart
