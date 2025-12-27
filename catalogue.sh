@@ -9,4 +9,7 @@ unzip /tmp/catalogue.zip
 cd /app 
 npm install
 cp catalogue.service /etc/systemd/system/catalogue.service
-sed -i 's/<MONGODB-SERVER-IPADDRESS>/<write-IP-Addr-After-Creatig-VM>/g' /etc/systemd/system/catalogue.service
+cp mongo.repo /etc/yum.repos.d/mongo.repo
+sed -i 's/<MONGODB-SERVER-IPADDRESS>/mongodb.dev.botparts.shop/g' /etc/systemd/system/catalogue.service
+dnf install mongodb-mongosh -y
+mongosh --host mongodb-dev.botparts.shop </app/db/master-data.js
