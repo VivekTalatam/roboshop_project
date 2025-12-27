@@ -8,7 +8,7 @@ cd /app
 mvn clean package 
 mv target/shipping-1.0.jar shipping.jar
 cp shipping.service /etc/systemd/system/shipping.service
-sed -i -e 's/<CART-SERVER-IPADDRESS>/<Write Cart IP after VM creation>' -e 's/<MYSQL-SERVER-IPADDRESS>/<Write mysql IP after VM creation>'
+sed -i -e 's/<CART-SERVER-IPADDRESS>/cart-dev.botparts.shop' -e 's/<MYSQL-SERVER-IPADDRESS>/<Write mysql IP after VM creation>'
 systemctl daemon-reload 
 systemctl enable shipping
 systemctl start shipping
