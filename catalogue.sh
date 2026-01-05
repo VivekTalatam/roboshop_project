@@ -4,14 +4,15 @@ dnf install nodejs -y
 useradd roboshop
 cp catalogue.service /etc/systemd/system/catalogue.service
 cp mongo.repo /etc/yum.repos.d/mongo.repo
+systemctl daemon-reload
+systemctl enable catalogue
+systemctl start catalogue
+sed -i 's/<MONGODB-SERVER-IPADDRESS>/mongodb-dev.botparts.shop/g' /etc/systemd/system/catalogue.service
 mkdir /app 
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
 cd /app 
 unzip /tmp/catalogue.zip
 cd /app 
 npm install
-sed -i 's/<MONGODB-SERVER-IPADDRESS>/mongodb.dev.botparts.shop/g' /etc/systemd/system/catalogue.service
 dnf install mongodb-mongosh -y
 mongosh --host mongodb-dev.botparts.shop </app/db/master-data.js
-systemctl enable catalogue
-systemctl start catalogue
