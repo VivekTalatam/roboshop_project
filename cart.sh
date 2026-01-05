@@ -4,7 +4,7 @@ dnf install nodejs -y
 useradd roboshop
 cp cart.service /etc/systemd/system/cart.service
 
-sed -i -e 's/<REDIS-SERVER-IP>/redis-dev.botparts.shop' -e 's/<CATALOGUE-SERVER-IP>/catalogue-dev.botparts.shop' /etc/systemd/system/cart.service
+sed -i -e 's/<REDIS-SERVER-IP>/redis-dev.botparts.shop/g' -e 's/<CATALOGUE-SERVER-IP>/catalogue-dev.botparts.shop/g' /etc/systemd/system/cart.service
 
 mkdir /app
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
