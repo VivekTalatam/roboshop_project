@@ -9,8 +9,10 @@ sed -i -e 's/<REDIS-SERVER-IP>/redis-dev.botparts.shop/g' -e 's/<CATALOGUE-SERVE
 mkdir /app
 curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
 cd /app 
+
 unzip /tmp/cart.zip
-cd /app 
+cd /app
+ 
 npm install 
 
 systemctl daemon-reload
